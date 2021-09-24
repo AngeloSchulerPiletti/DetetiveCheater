@@ -35,9 +35,10 @@ export class Jogador {
 
     }
 
-
     adicionandoCarta(tipoDaCarta, carta) {
         this.cartas[tipoDaCarta].push(carta);
+        console.log(`Carta ${carta} adicionada em ${tipoDaCarta} no jogador ${this.id}`);
+        Jogo.adicionaCartasTipadaDeUmJogador(this, tipoDaCarta);
     }
 
     removendoPossivelCarta(tipoDaCarta, carta) {

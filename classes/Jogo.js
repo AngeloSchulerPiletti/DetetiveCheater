@@ -5,7 +5,6 @@ export class Jogo {
 
     static jogadores = [];
 
-
     static todasCartas = {
         lugar: [],
         assassino: [],
@@ -39,16 +38,16 @@ export class Jogo {
                 var cartaCounter = 0;
                 var player;
                 Jogo.jogadores.forEach(jogador => {
-                    if(jogador.possiveisCartas[tipoDaCarta].includes(carta)){
-                        cartaCounter ++;
+                    if (jogador.possiveisCartas[tipoDaCarta].includes(carta)) {
+                        cartaCounter++;
                         player = jogador;
                     }
                 });
                 switch (cartaCounter) {
                     case 0:
-                        console.log(`Para o tipo ${tipoDaCarta}, a carta ${carta} é a resposta!`);    
+                        console.log(`Para o tipo ${tipoDaCarta}, a carta ${carta} é a resposta!`);
                         break;
-                
+
                     case 1:
                         console.log(`A carta ${carta}, só pode estar com ${player.id} ou ser a resposta!`);
                         break;
@@ -62,15 +61,7 @@ export class Jogo {
     }
 
     static checarResultadoDasCartas() {
-        Object.keys(Jogo.cartasPegas).forEach(tipoDaCarta => {
-            Jogo.jogadores.forEach(jogador => {
-                // console.log(`cartas ${tipoDaCarta} do jogador ${jogador.id}: ${jogador.cartas[tipoDaCarta]}`);
-                Jogo.cartasPegas[tipoDaCarta] = [...jogador.cartas[tipoDaCarta], ...Jogo.cartasPegas[tipoDaCarta]];
-                // console.log(`Resultado das cartas ${tipoDaCarta} pegas: ${Jogo.cartasPegas[tipoDaCarta].length} \n\n`);
-            });
-        });
-
-        // console.log('\n\n\n\n\n');
+        Jogo.adicionaTodasCartasDeTodosJogadores();
 
         Object.keys(Jogo.todasCartas).forEach(tipoDaCarta => {
             if (Jogo.cartasPegas[tipoDaCarta].length == (Jogo.todasCartas[tipoDaCarta].length - 1)) {
@@ -81,5 +72,25 @@ export class Jogo {
             console.log(`${Jogo.cartasPegas[tipoDaCarta].length} cartas pegas e ${Jogo.todasCartas[tipoDaCarta].length} cartas no total para ${tipoDaCarta}`);
         });
 
+    }
+
+    static adicionaTodasCartasDeTodosJogadores() {
+        Object.keys(Jogo.cartasPegas).forEach(tipoDaCarta => {
+            Jogo.jogadores.forEach(jogador => {
+                Jogo.cartasPegas[tipoDaCarta] = [...jogador.cartas[tipoDaCarta], ...Jogo.cartasPegas[tipoDaCarta]];
+            });
+        });
+    }
+
+    static adicionaTodasCartasDeUmJogador(jogador){
+        Object.keys(Jogo.cartasPegas).forEach(tipoDaCarta => {
+            Jogo.cartasPegas[tipoDaCarta] = [...jogador.cartas[tipoDaCarta], ...Jogo.cartasPegas[tipoDaCarta]];
+        });
+    }
+
+    static adicionaCartasTipadaDeUmJogador(jogador, tipoDaCarta){
+        console.log(`Cartas pegas antes: ${Jogo.cartasPegas[tipoDaCarta]}`);
+        Jogo.cartasPegas[tipoDaCarta] = [...jogador.cartas[tipoDaCarta], ...Jogo.cartasPegas[tipoDaCarta]];
+        console.log(`Cartas pegas depois: ${Jogo.cartasPegas[tipoDaCarta]}`);
     }
 }
