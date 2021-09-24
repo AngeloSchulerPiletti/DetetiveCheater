@@ -19,7 +19,7 @@ export class Jogador {
     }
 
 
-    constructor(partida, lugares = [], assassinos = [], armas = []) {
+    constructor( lugares = [], assassinos = [], armas = []) {
         this._id = Jogo.numeroDeJogadores;
         Jogo.numeroDeJogadores++;
 
@@ -29,9 +29,9 @@ export class Jogador {
         this.cartas.assassino = assassinos;
         this.cartas.arma = armas;
 
-        this.possiveisCartas.lugar = partida.todasCartas.lugar.filter(n => !this.cartas.lugar.includes(n));
-        this.possiveisCartas.assassino = partida.todasCartas.assassino.filter(n => !this.cartas.assassino.includes(n));
-        this.possiveisCartas.arma = partida.todasCartas.arma.filter(n => !this.cartas.arma.includes(n));
+        this.possiveisCartas.lugar = Jogo.todasCartas.lugar.filter(n => !this.cartas.lugar.includes(n));
+        this.possiveisCartas.assassino = Jogo.todasCartas.assassino.filter(n => !this.cartas.assassino.includes(n));
+        this.possiveisCartas.arma = Jogo.todasCartas.arma.filter(n => !this.cartas.arma.includes(n));
 
     }
 
