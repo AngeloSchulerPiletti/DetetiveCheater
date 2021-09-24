@@ -1,5 +1,5 @@
-import {Jogo} from "./Jogo.js";
-import {Jogador} from "./Jogador.js";
+import {Jogo} from "./classes/Jogo.js";
+import {Jogador} from "./classes/Jogador.js";
 
 const partida = new Jogo();
 
