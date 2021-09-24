@@ -6,6 +6,9 @@ export class Jogo {
         return Jogo.numeroDeJogadores;
     }
 
+    static jogadores = [];
+
+
     _todasCartas = {
         lugar: [],
         assassino: [],
@@ -27,14 +30,14 @@ export class Jogo {
         this.todasCartas.arma = armas;
     }
 
-    checarCartasPossiveis(arrJogadores) {
+    checarCartasPossiveis() {
         Object.keys(this.todasCartas).forEach(tipoDaCarta => {
             var result;
             var todasCartasDeUmTipo = this.todasCartas[tipoDaCarta];
 
             console.log(`${todasCartasDeUmTipo.filter(carta => {
                 var cartaCounter = 0;
-                arrJogadores.forEach(jogador => {
+                Jogo.jogadores.forEach(jogador => {
                     if(jogador.possiveisCartas[tipoDaCarta].includes(carta)){
                         cartaCounter ++;
                     }
@@ -56,9 +59,9 @@ export class Jogo {
         });
     }
 
-    checarResultadoDasCartas(arrJogadores) {
+    checarResultadoDasCartas() {
         Object.keys(this.cartasPegas).forEach(tipoDaCarta => {
-            arrJogadores.forEach(jogador => {
+            Jogo.jogadores.forEach(jogador => {
                 // console.log(`cartas ${tipoDaCarta} do jogador ${jogador.id}: ${jogador.cartas[tipoDaCarta]}`);
                 this.cartasPegas[tipoDaCarta] = [...jogador.cartas[tipoDaCarta], ...this.cartasPegas[tipoDaCarta]];
                 // console.log(`Resultado das cartas ${tipoDaCarta} pegas: ${this.cartasPegas[tipoDaCarta].length} \n\n`);

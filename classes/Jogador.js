@@ -23,6 +23,8 @@ export class Jogador {
         this._id = Jogo.numeroDeJogadores;
         Jogo.numeroDeJogadores++;
 
+        Jogo.jogadores.push(this);
+
         this.cartas.lugar = lugares;
         this.cartas.assassino = assassinos;
         this.cartas.arma = armas;
