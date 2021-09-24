@@ -1,0 +1,42 @@
+header {
+  display: flex;
+  padding: 2vw 4vw;
+  justify-content: space-between;
+
+  background-color: black;
+  color: white;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 10vw;
+  margin: 6.5vw 0;
+
+  #sec1 {
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 4vw;
+      margin: 3vw 0;
+      padding: 0 4vw;
+
+      .cartas {
+        display: flex;
+        flex-direction: column;
+        gap: 2vw;
+
+        .cartas_input_wrapper {
+          label {
+          }
+          .carta_input {
+              
+          }
+        }
+      }
+      .adversarios_wrapper {
+      }
+      .controller {
+      }
+    }
+  }
+}

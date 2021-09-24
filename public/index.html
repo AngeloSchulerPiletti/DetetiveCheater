@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Detetive Cheater Interface</title>
 </head>
 <body>
@@ -12,11 +14,11 @@
         <button>RESET</button>
     </header>
     <main>
-        <section>
+        <section id="sec1">
             <form onsubmit="event.preventDefault();">
                 <h3>Selecione suas cartas</h3>
-                <div>
-                    <div>
+                <div class="cartas">
+                    <div class="cartas_input_wrapper">
                         <label>Lugar: </label>
                         <input type="checkbox" class="carta_input lugar" value="0">
                         <input type="checkbox" class="carta_input lugar" value="1">
@@ -30,7 +32,7 @@
                         <input type="checkbox" class="carta_input lugar" value="9">
                         <input type="checkbox" class="carta_input lugar" value="10">
                     </div>
-                    <div>
+                    <div class="cartas_input_wrapper">
                         <label>Assassino: </label>
                         <input type="checkbox" class="carta_input assassino" value="0">
                         <input type="checkbox" class="carta_input assassino" value="1">
@@ -41,7 +43,7 @@
                         <input type="checkbox" class="carta_input assassino" value="6">
                         <input type="checkbox" class="carta_input assassino" value="7">
                     </div>
-                    <div>
+                    <div class="cartas_input_wrapper">
                         <label>Arma: </label>
                         <input type="checkbox" class="carta_input arma" value="0">
                         <input type="checkbox" class="carta_input arma" value="1">
@@ -53,7 +55,7 @@
                         <input type="checkbox" class="carta_input arma" value="7">
                     </div>
                 </div>
-                <div>
+                <div class="adversarios_wrapper">
                     <label for="adversarios">Número de Adversários: </label>
                     <select name="adversarios" id="adversarios">
                         <option value="1">1</option>
@@ -64,7 +66,7 @@
                         <option value="6">6</option>
                     </select>
                 </div>
-                <div>
+                <div class="controller">
                     <button id="criar_jogadores_btn">Criar Jogadores</button>
                 </div>
             </form>

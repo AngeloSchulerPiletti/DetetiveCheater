@@ -9,5 +9,8 @@
   },
   "author": "Angelo Schuler Piletti",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "sass": "^1.42.1"
+  }
 }
