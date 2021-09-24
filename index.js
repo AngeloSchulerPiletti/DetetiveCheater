@@ -10,12 +10,12 @@ criarJogadoresBtn.addEventListener('click', function () {
     console.log("clicado");
 
     var skipOff = false;
-    var listaCartasJogador1 = [];
+    var listaCartasJogador1 = {lugar: [], assassino: [], arma: []};
     Jogo.tiposDeCartas.forEach(tipoDaCarta => {
         if(!checkCheckboxInputs(tipoDaCarta)){ 
             skipOff = true;
         } 
-        listaCartasJogador1.push(checkCheckboxInputs(tipoDaCarta));
+        listaCartasJogador1[tipoDaCarta] = checkCheckboxInputs(tipoDaCarta);
     });
 
     if(skipOff) return;
@@ -27,7 +27,7 @@ criarJogadoresBtn.addEventListener('click', function () {
     for (let i = 0; i <= numeroDeAdversarios; i++) {
         switch (i) {
             case 0:
-                listaJogadores.push(new Jogador(listaCartasJogador1[0], listaCartasJogador1[1], listaCartasJogador1[2]));
+                listaJogadores.push(new Jogador(listaCartasJogador1.lugar, listaCartasJogador1.assassino, listaCartasJogador1.arma));
                 break;
 
             default:
@@ -39,6 +39,19 @@ criarJogadoresBtn.addEventListener('click', function () {
     Jogo.jogadores.forEach(jogador => {
         console.log(jogador);
     });
+
+    var section1 = document.querySelector('#sec1');
+    section1.style.display = "none";
+    var section2 = document.querySelector('#sec2'),
+    formOutrosJogadores = document.querySelector('#form_outros_jogadores');
+
+    section2.style.display = "block";
+    var inputs = {
+        adversarios: formOutrosJogadores.querySelector('#adversarios2'), 
+        tipoDaCarta: formOutrosJogadores.querySelector('#tipodacarta2'), 
+        carta: formOutrosJogadores.querySelector('#carta2')
+    };
+
 });
 
 

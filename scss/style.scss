@@ -13,12 +13,12 @@ main {
   margin: 6.5vw 0;
 
   #sec1 {
+    padding: 0 4vw;
     form {
       display: flex;
       flex-direction: column;
       gap: 4vw;
       margin: 3vw 0;
-      padding: 0 4vw;
 
       .cartas {
         display: flex;
@@ -38,5 +38,8 @@ main {
       .controller {
       }
     }
+  }
+  #sec2{
+      padding: 0 4vw;
   }
 }

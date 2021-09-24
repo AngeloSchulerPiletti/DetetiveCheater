@@ -12,17 +12,22 @@ main {
   gap: 10vw;
   margin: 6.5vw 0;
 }
+main #sec1 {
+  padding: 0 4vw;
+}
 main #sec1 form {
   display: flex;
   flex-direction: column;
   gap: 4vw;
   margin: 3vw 0;
-  padding: 0 4vw;
 }
 main #sec1 form .cartas {
   display: flex;
   flex-direction: column;
   gap: 2vw;
+}
+main #sec2 {
+  padding: 0 4vw;
 }
 
 /*# sourceMappingURL=style.css.map */
