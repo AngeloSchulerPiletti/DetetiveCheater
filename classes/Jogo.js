@@ -5,6 +5,8 @@ export class Jogo {
 
     static jogadores = [];
 
+    static tiposDeCartas = ['lugar', 'assassino', 'arma'];
+
     static todasCartas = {
         lugar: [],
         assassino: [],
@@ -34,7 +36,7 @@ export class Jogo {
             var result;
             var todasCartasDeUmTipo = Jogo.todasCartas[tipoDaCarta];
 
-            console.log(`${todasCartasDeUmTipo.filter(carta => {
+            todasCartasDeUmTipo.filter(carta => {
                 var cartaCounter = 0;
                 var player;
                 Jogo.jogadores.forEach(jogador => {
@@ -54,9 +56,7 @@ export class Jogo {
                     default:
                         break;
                 }
-            })}`);
-            console.log('\n\n\n\n');
-
+            })
         });
     }
 
@@ -69,17 +69,20 @@ export class Jogo {
                 console.log(Jogo.cartasPegas[tipoDaCarta], Jogo.todasCartas[tipoDaCarta]);
                 console.log(`O ${tipoDaCarta} é: ${Jogo.todasCartas[tipoDaCarta].filter(carta => !Jogo.cartasPegas[tipoDaCarta].includes(carta))}`);
             }
+            console.log(Jogo.cartasPegas[tipoDaCarta]);
             console.log(`${Jogo.cartasPegas[tipoDaCarta].length} cartas pegas e ${Jogo.todasCartas[tipoDaCarta].length} cartas no total para ${tipoDaCarta}`);
         });
 
     }
 
     static adicionaTodasCartasDeTodosJogadores() {
-        Object.keys(Jogo.cartasPegas).forEach(tipoDaCarta => {
+        var cartasPegasPelosJogadores = {lugar: [], assassino: [], arma: []};
+        Jogo.tiposDeCartas.forEach(tipoDaCarta => {
             Jogo.jogadores.forEach(jogador => {
-                Jogo.cartasPegas[tipoDaCarta] = [...jogador.cartas[tipoDaCarta], ...Jogo.cartasPegas[tipoDaCarta]];
+                cartasPegasPelosJogadores[tipoDaCarta] = [...jogador.cartas[tipoDaCarta], ...cartasPegasPelosJogadores[tipoDaCarta]];
             });
         });
+        Jogo.cartasPegas = cartasPegasPelosJogadores;
     }
 
     static adicionaTodasCartasDeUmJogador(jogador){
@@ -89,8 +92,17 @@ export class Jogo {
     }
 
     static adicionaCartasTipadaDeUmJogador(jogador, tipoDaCarta){
-        console.log(`Cartas pegas antes: ${Jogo.cartasPegas[tipoDaCarta]}`);
         Jogo.cartasPegas[tipoDaCarta] = [...jogador.cartas[tipoDaCarta], ...Jogo.cartasPegas[tipoDaCarta]];
-        console.log(`Cartas pegas depois: ${Jogo.cartasPegas[tipoDaCarta]}`);
+    }
+
+    static checaSeCartaJaFoiPega(tipoDaCarta, carta){
+        var result = false;
+        Jogo.cartasPegas[tipoDaCarta].forEach(cartaPega => {
+            console.log(`Carta pega: ${cartaPega}, carta: ${carta}`);
+            if(carta == cartaPega){
+                result = true;
+            }
+        });
+        return result;
     }
 }
