@@ -8,9 +8,9 @@ export class Jogo {
     static tiposDeCartas = ['lugar', 'assassino', 'arma'];
 
     static todasCartas = {
-        lugar: [],
-        assassino: [],
-        arma: [],
+        lugar: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        assassino: [0, 1, 2, 3, 4, 5, 6, 7],
+        arma: [0, 1, 2, 3, 4, 5, 6, 7],
     }
 
     static cartasPegas = {
@@ -23,12 +23,6 @@ export class Jogo {
         lugar: [],
         assassino: [],
         arma: [],
-    }
-
-    constructor(lugares = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], assassinos = [0, 1, 2, 3, 4, 5, 6, 7], armas = [0, 1, 2, 3, 4, 5, 6, 7]) {
-        Jogo.todasCartas.lugar = lugares;
-        Jogo.todasCartas.assassino = assassinos;
-        Jogo.todasCartas.arma = armas;
     }
 
     static checarCartasPossiveis() {
