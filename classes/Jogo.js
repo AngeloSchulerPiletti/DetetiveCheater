@@ -37,9 +37,11 @@ export class Jogo {
 
             console.log(`${todasCartasDeUmTipo.filter(carta => {
                 var cartaCounter = 0;
+                var player;
                 Jogo.jogadores.forEach(jogador => {
                     if(jogador.possiveisCartas[tipoDaCarta].includes(carta)){
                         cartaCounter ++;
+                        player = jogador;
                     }
                 });
                 switch (cartaCounter) {
@@ -48,7 +50,7 @@ export class Jogo {
                         break;
                 
                     case 1:
-                        console.log(`A carta ${carta}, ainda está no jogo!`);
+                        console.log(`A carta ${carta}, só pode estar com ${player.id} ou ser a resposta!`);
                         break;
                     default:
                         break;
