@@ -1,6 +1,7 @@
+
 function inputEmpty(inputArrValues) {
     if (inputArrValues.length < 1) {
-        return true;
+        return inputArrValues;
     }
     return false;
 }
@@ -11,9 +12,22 @@ export function checkCheckboxInputs(input_class) {
 
     inputs.forEach(checkbox => {
         if (checkbox.checked) {
-            checkedCartas.push(checkbox.value);
+            checkedCartas.push(Number(checkbox.value));
         }
     });
 
-    return inputEmpty(checkedCartas) ? alert(`Precisa ter pelo menos uma carta em ${input_class}`) : checkedCartas;
+    if (inputEmpty(checkedCartas)) {
+        alert(`Precisa ter pelo menos uma carta em ${input_class}`);
+        return null;
+    }
+    return checkedCartas;
+}
+
+export function checkNumeroDeAdversarios(id) { 
+    var selector = document.querySelector(`#${id}`);
+    if (!(selector.value && selector.value > 0 && selector.value < 7)) {
+        alert('Selecione um número de adversários de 1 a 6');
+        return null;
+    }
+    return selector.value;
 }
