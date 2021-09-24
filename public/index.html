@@ -7,6 +7,69 @@
     <title>Detetive Cheater Interface</title>
 </head>
 <body>
-    
+    <header>
+        <h1>Detetive Cheater</h1>
+    </header>
+    <main>
+        <section>
+            <form onsubmit="event.preventDefault();">
+                <h3>Selecione suas cartas</h3>
+                <div>
+                    <div>
+                        <label>Lugar: </label>
+                        <input type="checkbox" class="carta_input lugar" value="0">
+                        <input type="checkbox" class="carta_input lugar" value="1">
+                        <input type="checkbox" class="carta_input lugar" value="2">
+                        <input type="checkbox" class="carta_input lugar" value="3">
+                        <input type="checkbox" class="carta_input lugar" value="4">
+                        <input type="checkbox" class="carta_input lugar" value="5">
+                        <input type="checkbox" class="carta_input lugar" value="6">
+                        <input type="checkbox" class="carta_input lugar" value="7">
+                        <input type="checkbox" class="carta_input lugar" value="8">
+                        <input type="checkbox" class="carta_input lugar" value="9">
+                        <input type="checkbox" class="carta_input lugar" value="10">
+                    </div>
+                    <div>
+                        <label>Assassino: </label>
+                        <input type="checkbox" class="carta_input assassino" value="0">
+                        <input type="checkbox" class="carta_input assassino" value="1">
+                        <input type="checkbox" class="carta_input assassino" value="2">
+                        <input type="checkbox" class="carta_input assassino" value="3">
+                        <input type="checkbox" class="carta_input assassino" value="4">
+                        <input type="checkbox" class="carta_input assassino" value="5">
+                        <input type="checkbox" class="carta_input assassino" value="6">
+                        <input type="checkbox" class="carta_input assassino" value="7">
+                    </div>
+                    <div>
+                        <label>Arma: </label>
+                        <input type="checkbox" class="carta_input arma" value="0">
+                        <input type="checkbox" class="carta_input arma" value="1">
+                        <input type="checkbox" class="carta_input arma" value="2">
+                        <input type="checkbox" class="carta_input arma" value="3">
+                        <input type="checkbox" class="carta_input arma" value="4">
+                        <input type="checkbox" class="carta_input arma" value="5">
+                        <input type="checkbox" class="carta_input arma" value="6">
+                        <input type="checkbox" class="carta_input arma" value="7">
+                    </div>
+                </div>
+                <div>
+                    <label for="adversarios">Número de Adversários: </label>
+                    <select name="adversarios" id="adversarios">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div>
+                    <button id="criar_jogadores_btn">Criar Jogadores</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="../index.js" type="module"></script>
 </body>
 </html>
